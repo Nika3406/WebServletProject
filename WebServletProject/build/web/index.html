@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servlet Form</title>
+    <script>
+        // Set the action parameter when a button is clicked
+        function setAction(value) {
+            document.getElementById('actionInput').value = value;
+        }
+    </script>
+</head>
+<body>
+    <h2>Database Operations</h2>
+    <form action="DatabaseServlet" method="post">
+        <label for="id">ID:</label>
+        <input type="text" name="id" required><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName"><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName"><br>
+        
+        <!-- Hidden input to store the action value -->
+        <input type="hidden" id="actionInput" name="action" value="">
+
+        <button type="button" onclick="setAction('view'); this.form.submit();">View</button>
+        <button type="button" onclick="setAction('insert'); this.form.submit();">Insert</button>
+        <button type="button" onclick="setAction('update'); this.form.submit();">Update</button>
+        <button type="reset">Clear</button>
+    </form>
+</body>
+</html>
