@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 500px;
+            margin: auto;
+        }
+        label {
+            display: inline-block;
+            width: 80px;
+        }
+        input[type="text"] {
+            width: 300px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        input[type="text"].short {
+            width: 70px;
+        }
+        button {
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+        function setAction(value) {
+            document.getElementById('actionInput').value = value;
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align: center;">Staff Information</h2>
+    <form action="DatabaseServlet" method="post">
+        <label for="id">ID:</label>
+        <input type="text" name="id" required><br>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" class="short">
+        <label for="firstName" style="margin-left: 20px;">First Name:</label>
+        <input type="text" name="firstName" class="short"><br>
+        
+        <label for="mi">MI:</label>
+        <input type="text" name="mi" class="short"><br>
+        
+        <label for="address">Address:</label>
+        <input type="text" name="address"><br>
+        
+        <label for="city">City:</label>
+        <input type="text" name="city" class="short">
+        <label for="state" style="margin-left: 20px;">State:</label>
+        <input type="text" name="state" class="short"><br>
+        
+        <label for="telephone">Telephone:</label>
+        <input type="text" name="telephone"><br>
+        
+        <label for="email">Email:</label>
+        <input type="text" name="email"><br>
+        
+        <label for="gender">Gender:</label>
+        <input type="text" name="gender"><br>
+        
+        <!-- Hidden input to store the action value -->
+        <input type="hidden" id="actionInput" name="action" value="">
+
+        <div style="text-align: center;">
+            <button type="button" onclick="setAction('view'); this.form.submit();">View</button>
+            <button type="button" onclick="setAction('insert'); this.form.submit();">Insert</button>
+            <button type="button" onclick="setAction('update'); this.form.submit();">Update</button>
+            <button type="reset">Clear</button>
+        </div>
+    </form>
+</body>
+</html>
